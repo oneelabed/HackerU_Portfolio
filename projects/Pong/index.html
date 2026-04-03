@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pong: Tournament Edition</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="match-score">
+            <span id="p1-match">0</span>
+            <span class="divider">:</span>
+            <span id="p2-match">0</span>
+        </div>
+
+        <div class="series-score">
+            <span>Series Wins: <b id="p1-series">0</b></span>
+            <span>Series Wins: <b id="p2-series">0</b></span>
+        </div>
+
+        <canvas id="pong" width="800" height="500"></canvas>
+
+        <div class="controls">
+            <span>P1: W / S</span>
+            <span>FIRST TO 7 WINS THE MATCH</span>
+            <span>P2: UP / DOWN</span>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

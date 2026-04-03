@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oneel | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="status-msg" class="status-box hidden"></div>
+
+    <nav>
+        <div class="logo" id="logo-home">ONEEL</div>
+        <div class="nav-links"> 
+            <a href="#gallery" id="nav-projects">Work</a>
+            <a href="#contact" class="contact-btn">Contact</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="hero">
+            <h1>Building logic through <span class="accent">code.</span></h1>
+            <p>Software Engineering Student at HackerU specializing in Vanilla JavaScript systems.</p>
+        </section>
+
+        <section id="gallery">
+            <div class="gallery-header">
+                <h2>Project Center</h2>
+                <span>09 / Projects Total</span>
+            </div>
+            <div class="project-grid" id="project-container">
+                </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have a question or want to work together?</p>
+            </div>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <section id="project-detail-page" class="hidden">
+        <div class="detail-header">
+            <button id="close-detail" class="back-btn">← Back to Gallery</button>
+        </div>
+        <div class="detail-wrapper">
+            <div class="detail-text">
+                <div id="detail-tags" class="tag-row"></div>
+                <h1 id="detail-title"></h1>
+
+                <div class="tech-stack-display">
+                    <span>Built with:</span>
+                    <div class="icon-group">
+                        <img src="images/html-icon.png" alt="HTML5" class="tech-icon">
+                        <img src="images/css-icon.png" alt="CSS3" class="tech-icon">
+                        <img src="images/js-icon.png" alt="JavaScript" class="tech-icon">
+                    </div>
+                </div>
+
+                <p id="detail-description"></p>
+                <div class="detail-actions">
+                    <a href="#" id="view-live" class="btn-primary" target="_blank">View Project</a>
+                    <a href="#" id="download-zip" class="btn-secondary">Download ZIP</a>
+                </div>
+            </div>
+            <div class="detail-image-box">
+                <img id="detail-image" src="" alt="Project Preview">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Oneel | HackerU JS Module Project</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+:root {
+    --board-color: #2c3e50;
+    --empty-color: #ecf0f1;
+    --player1-color: #e74c3c;
+    --player2-color: #f1c40f;
+    --highlight-color: rgba(5, 241, 20, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 { color: #2c3e50; margin-bottom: 10px; }
+#status { margin-bottom: 20px; font-weight: bold; }
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    grid-template-rows: repeat(6, 60px);
+    gap: 10px;
+    padding: 10px;
+    background-color: #dcdcdc;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#board::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    pointer-events: none;
+    
+    /* This creates the transparent holes in the solid blue sheet */
+    background: radial-gradient(circle 28px, #2c3e5000 28px, var(--board-color) 28.5px);
+    background-size: 70px 70px;
+    background-position: 5px 5px;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: var(--empty-color);
+    border-radius: 50%;
+    position: relative;
+}
+
+.cell:hover::before {
+    content: '';
+    position: absolute;
+    top: -500px; 
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    background-color: var(--highlight-color);
+    z-index: 1; 
+    pointer-events: none;
+}
+
+.cell.p1::after, .cell.p2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 2;
+    animation: drop 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.cell.p1::after { background-color: var(--player1-color); }
+.cell.p2::after { background-color: var(--player2-color); }
+
+@keyframes drop {
+    0% {
+        transform: translateY(-400px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--board-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#scoreboard {
+    display: flex;
+    gap: 30px;
+    background-color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.score-item {
+    text-align: center;
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#p1-score, #p2-score {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--board-color);
+}
+
+#reset-scores {
+    margin-top: 0; /* Override the previous margin */
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* Container for the label and the switch */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill shape to match game style */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.toggle-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+/* The actual switch container */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider track */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+/* The slider knob */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* When checked: change background to board color */
+input:checked + .slider {
+    background-color: var(--board-color);
+}
+
+/* When checked: move the knob to the right */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}

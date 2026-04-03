@@ -1,0 +1,148 @@
+:root {
+    --bg-blue: #000428;
+    --mid-blue: #000833;
+    --gold: #e5b13a;
+    --bright-blue: #111e6c;
+    --correct: #2ecc71;
+    --wrong: #e74c3c;
+    --pending: #f39c12;
+    --text-white: #ffffff;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle, var(--bright-blue) 0%, #000 100%);
+    font-family: 'Arial', sans-serif;
+    color: var(--text-white);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#game-container {
+    display: flex;
+    width: 95%;
+    max-width: 1100px;
+    height: 80vh;
+    gap: 20px;
+}
+
+/* --- Money Ladder --- */
+.sidebar {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--gold);
+    padding: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.ladder-item {
+    padding: 5px 15px;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 0.9rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ladder-item.active {
+    background: var(--gold);
+    color: black;
+    border-radius: 5px;
+}
+
+.ladder-item.milestone {
+    color: white;
+}
+
+/* --- Main Stage --- */
+.main-stage {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 40px;
+}
+
+.question-box {
+    background: var(--mid-blue);
+    border: 2px solid var(--gold);
+    padding: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+}
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.answer-btn {
+    background: var(--mid-blue);
+    border: 2px solid var(--gold);
+    color: white;
+    padding: 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.2s;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}
+
+.answer-btn:disabled { cursor: default; }
+
+/* Logic States */
+.answer-btn.selected { background: var(--pending); color: black; }
+.answer-btn.correct { background: var(--correct); color: black; border-color: white; }
+.answer-btn.wrong { background: var(--wrong); color: white; }
+
+#message-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+button#restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#start-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #111e6c 0%, #000 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Ensure it's on top */
+}
+
+#start-btn {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}

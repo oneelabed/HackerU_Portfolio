@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Wants to Be a Millionaire?</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="start-overlay">
+        <h1>Who Wants to Be a Millionaire?</h1>
+        <button id="start-btn">START GAME</button>
+    </div>
+    <div id="game-container">
+        <div class="sidebar" id="ladder"></div>
+
+        <div class="main-stage">
+            <div id="question-text" class="question-box">Loading question...</div>
+            <div class="answers-grid" id="answers-container">
+                <button class="answer-btn" onclick="handleAnswer(0)">A: <span id="ans0"></span></button>
+                <button class="answer-btn" onclick="handleAnswer(1)">B: <span id="ans1"></span></button>
+                <button class="answer-btn" onclick="handleAnswer(2)">C: <span id="ans2"></span></button>
+                <button class="answer-btn" onclick="handleAnswer(3)">D: <span id="ans3"></span></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="message-overlay">
+        <h1 id="overlay-title">Game Over</h1>
+        <p id="overlay-sub"></p>
+        <button id="restart-btn" onclick="location.reload()">RESTART GAME</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

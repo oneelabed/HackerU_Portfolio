@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-table" class="table">
+        <div class="section-top">
+            <div class="character">
+                <div class="hat"></div>
+                <div class="label">Bill</div>
+            </div>
+            <div id="cpu-deck-slot" class="deck-slot"></div>
+            <div class="count-label">Cards: <span id="cpu-count">0</span></div>
+            <div id="cpu-play-zone" class="play-zone"></div>
+        </div>
+
+        <div class="section-middle">
+            <div id="deck-origin" class="deck-origin"></div>
+            <div class="status-bar"><span id="message">Press DEAL to Start</span></div>
+            <button id="deal-btn">DEAL</button>
+        </div>
+
+        <div class="section-bottom">
+            <div id="player-play-zone" class="play-zone"></div>
+            <div id="player-deck-slot" class="deck-slot"></div>
+            <div class="count-label">Cards: <span id="player-count">0</span></div>
+            <div class="character">
+                <div class="hat"></div>
+                <div class="label">You</div>
+            </div>
+        </div>
+
+        <div id="war-overlay" class="war-overlay hidden">WAR</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

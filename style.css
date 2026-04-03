@@ -1,0 +1,153 @@
+:root {
+    --bg: #050505;
+    --card: #0f0f11;
+    --accent: #6366f1;
+    --text: #ffffff;
+    --dim: #a1a1aa;
+    --border: #27272a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.5; }
+
+/* Essential for logic */
+.hidden { display: none !important; }
+
+/* Navigation */
+nav { position: sticky; top: 0; z-index: 1000; background-color: black; display: flex; justify-content: space-between; padding: 25px 8%; border-bottom: 1px solid var(--border); }
+.nav-links { display: flex; gap: 2.5rem; }
+.nav-links a { text-decoration: none; color: white; }
+.logo { font-size: 1.4rem; font-weight: 800; cursor: pointer; color: var(--accent); letter-spacing: 1px; }
+
+/* Hero */
+.hero { padding: 80px 8%; max-width: 900px; }
+.hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+.accent { color: var(--accent); }
+
+/* Gallery (Appendix 1) */
+.gallery-header { padding: 0 8%; display: flex; justify-content: space-between; align-items: flex-end; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 8%; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; cursor: pointer; transition: 0.3s; overflow: hidden; }
+.card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border); }
+.card-content { padding: 24px; }
+
+/* Detail Page (Appendix 2) */
+#project-detail-page { padding: 40px 8%; min-height: 100vh; animation: fadeIn 0.4s ease; }
+.detail-wrapper { display: flex; gap: 60px; margin-top: 40px; }
+.detail-text { flex: 1; }
+.detail-image-box { flex: 1.4; }
+.detail-image-box img { width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+
+.detail-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: nowrap; /* Prevents stacking/overlapping */
+}
+
+.tech-stack-display {
+    margin: 15px 0 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tech-stack-display span {
+    font-size: 0.75rem;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.icon-group {
+    display: flex;
+    gap: 18px;
+    font-size: 1.8rem;
+}
+
+.tech-icon {
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+    transform: translateY(-3px);
+}
+
+/* Buttons & Elements */
+.back-btn { background: none; border: 1px solid var(--border); color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: inline-block;
+    white-space: nowrap; /* Keeps text on one line */
+    text-align: center;
+    transition: 0.2s ease-in-out;
+}
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: white;
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+.tag-row { margin-bottom: 15px; }
+.tech-tag { background: rgba(99, 102, 241, 0.1); color: var(--accent); font-size: 0.7rem; padding: 5px 10px; border-radius: 4px; margin-right: 8px; font-weight: bold; }
+
+/* Feedback Box */
+.status-box { position: fixed; bottom: 30px; right: 30px; background: #1a1a1c; border: 1px solid var(--accent); padding: 15px 25px; border-radius: 8px; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+.contact-section {
+    padding: 80px 8%;
+    background: #080808;
+    border-top: 1px solid var(--border);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Ensure the contact button in nav is visible */
+
+footer {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Optimization */
+@media (max-width: 900px) {
+    .detail-wrapper { flex-direction: column; }
+    .hero h1 { font-size: 2.5rem; }
+}

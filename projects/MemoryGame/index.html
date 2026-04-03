@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="game-header">
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-label">MOVES</span>
+                <span id="moves">0</span>
+            </div>
+        </div>
+
+        <div class="controls-container">
+            <div class="select-wrapper">
+                <select id="difficulty-select">
+                    <option value="easy">Easy (3x4)</option>
+                    <option value="medium">Medium (4x6)</option>
+                    <option value="hard">Hard (6x8)</option>
+                </select>
+            </div>
+            <button onclick="startNewGame()" class="btn-new-game">New Game</button>
+        </div>
+        <span id="result">You only have 12 moves!</span>
+    </header>
+    <div class="memory-game" id="game-board"></div>
+    <script src="script.js"></script>
+</body>
+</html>
