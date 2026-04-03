@@ -1,10 +1,10 @@
 PROJECT: JavaScript Module Summary Portfolio
 STUDENT: Oneel
 COLLEGE: HackerU
-DATE: March 2026
+DATE: April 2026
 
 DESCRIPTION:
-This portfolio showcases 8 software engineering projects (6 core + 2 bonus) 
+This portfolio showcases 9 software engineering projects (6 core + 3 bonus) 
 developed during the JavaScript module. The project focuses on 
 clean code, responsiveness, and algorithmic logic without external frameworks.
 
@@ -17,6 +17,7 @@ PROJECTS INCLUDED:
 6. Tic Tac Toe (DOM Fundamentals)
 7. Millionaire (Audio API/State)
 8. War (Async Logic)
+9. Pro ToDoList (JSON)
 
 INSTRUCTIONS:
 - Click any project card to view the dedicated documentation page.
